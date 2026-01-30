@@ -2,480 +2,694 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Austin's Plumbing | Philadelphia Plumber</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin's Plumbing | Philadelphia's Trusted Plumber</title>
+  <meta name="description"
+    content="Austin's Plumbing - Philadelphia's trusted, fast-response plumbing experts delivering dependable service 24/7." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Inter:wght@300;400;600&display=swap"
-    rel="stylesheet">
-
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            indigo: {
+              900: '#3F3A63', // Plumbing Indigo
+            },
+            red: {
+              600: '#D64545', // Service Red
+              700: '#B53535',
+            },
+            gray: {
+              50: '#F4F5F7', // Clean Gray
+              900: '#333333', // Charcoal
+            },
+            yellow: {
+              400: '#FFC857', // Rating Gold
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Roboto Slab', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
   <style>
-    /* -------------------------
-GLOBAL STYLES
---------------------------*/
-
-    :root {
-      --indigo: #3F3A63;
-      --red: #D64545;
-      --gray: #F4F5F7;
-      --charcoal: #333;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
-      color: var(--charcoal);
-      line-height: 1.6;
+      color: #333333;
     }
 
     h1,
     h2,
-    h3 {
+    h3,
+    h4,
+    h5,
+    h6 {
       font-family: 'Roboto Slab', serif;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
+    /* Mobile Menu Styles */
+    #mobile-menu {
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
     }
 
-    button {
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    /* -------------------------
-UTILITY BAR
---------------------------*/
-
-    .utility {
-      background: var(--indigo);
-      color: white;
-      padding: 10px 0;
-      font-size: 14px;
-    }
-
-    .utility .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* -------------------------
-NAVIGATION
---------------------------*/
-
-    nav {
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 24px;
-      color: var(--indigo);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--charcoal);
-      font-weight: 500;
-    }
-
-    .cta-btn {
-      background: var(--red);
-      color: white;
-      padding: 12px 18px;
-      border-radius: 6px;
-    }
-
-    .cta-btn:hover {
-      background: #c53b3b;
-    }
-
-    /* -------------------------
-HERO
---------------------------*/
-
-    .hero {
-      height: 85vh;
-      background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(63, 58, 99, .75);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      color: white;
-      max-width: 650px;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      margin-bottom: 24px;
-      font-size: 18px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .white-btn {
-      background: white;
-      color: var(--indigo);
-      padding: 14px 20px;
-      border-radius: 6px;
-    }
-
-    .badges {
-      margin-top: 28px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-
-    /* -------------------------
-SERVICES
---------------------------*/
-
-    .services {
-      background: var(--gray);
-      padding: 80px 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: white;
-      padding: 28px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-      transition: .25s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    /* -------------------------
-WHY CHOOSE US
---------------------------*/
-
-    .why {
-      padding: 80px 0;
-    }
-
-    .why-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .why img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    /* -------------------------
-CTA STRIP
---------------------------*/
-
-    .cta-strip {
-      background: var(--red);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .cta-strip button {
-      background: white;
-      color: var(--red);
-      padding: 14px 24px;
-      border-radius: 6px;
-      margin-top: 20px;
-    }
-
-    /* -------------------------
-REVIEWS
---------------------------*/
-
-    .reviews {
-      padding: 80px 0;
-      background: var(--gray);
-    }
-
-    .review-card {
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-    }
-
-    /* -------------------------
-FINAL CTA
---------------------------*/
-
-    .final-cta {
-      background: var(--indigo);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    /* -------------------------
-FOOTER
---------------------------*/
-
-    footer {
-      background: #222;
-      color: #ccc;
-      padding: 40px 0;
-      font-size: 14px;
-    }
-
-    /* -------------------------
-MOBILE
---------------------------*/
-
-    @media(max-width:900px) {
-
-      .why-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-
-    /* Sticky Mobile Call Button */
-
-    .call-now {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--red);
-      color: white;
-      padding: 16px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    #mobile-menu.open {
+      max-height: 500px;
+      opacity: 1;
     }
   </style>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="min-h-screen flex flex-col font-sans">
 
   <!-- Utility Bar -->
-  <div class="utility">
-    <div class="container">
-      <div>📞 Call Now: <strong>267-320-0081</strong></div>
-      <div>Serving Philadelphia & Surrounding Areas</div>
+  <div class="bg-indigo-900 text-white py-2 text-sm hidden md:block z-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2 font-medium">
+          <i data-lucide="phone" class="w-4 h-4 text-red-400"></i>
+          <span>Call Now: 267-320-0081</span>
+        </div>
+        <div class="text-indigo-200">
+          Serving Philadelphia & Surrounding Areas
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="container nav-inner">
-      <div class="logo">Austin's Plumbing</div>
+  <!-- Main Nav -->
+  <nav id="navbar" class="bg-white border-b border-gray-100 sticky top-0 z-40 transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <div
+            class="w-10 h-10 bg-indigo-900 rounded-full flex items-center justify-center text-white font-bold text-xl font-serif">
+            A</div>
+          <div class="flex flex-col">
+            <span class="text-xl font-bold text-indigo-900 leading-none font-serif tracking-tight">Austin's</span>
+            <span class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Plumbing</span>
+          </div>
+        </div>
 
-      <div class="nav-links">
-        <a href="#">Services</a>
-        <a href="#">About</a>
-        <a href="#">Reviews</a>
-        <a href="#">Service Areas</a>
-        <a href="#">Contact</a>
-        <a class="cta-btn" href="#">Get a Free Quote</a>
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#services" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Services</a>
+          <a href="#about" class="text-gray-700 hover:text-red-600 font-medium transition-colors">About</a>
+          <a href="#reviews" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Reviews</a>
+          <a href="#service-area" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Service
+            Areas</a>
+          <a href="#contact" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</a>
+          <button
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-600/20 focus:ring-red-600 transition-all duration-200">
+            Get a Free Quote
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-700 p-2">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+      <div class="flex flex-col p-4 space-y-4">
+        <a href="#services" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Services</a>
+        <a href="#about" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">About</a>
+        <a href="#reviews" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Reviews</a>
+        <a href="#service-area" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Service
+          Areas</a>
+        <a href="#contact" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Contact</a>
+        <button
+          class="w-full inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg">
+          Get a Free Quote
+        </button>
+        <a href="tel:267-320-0081"
+          class="flex items-center justify-center gap-2 text-indigo-900 font-bold py-3 bg-gray-50 rounded mt-2">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          Call 267-320-0081
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>Philadelphia’s Trusted Plumber — Ready When You Need Us</h1>
-      <p>24/7 emergency service. Licensed. Insured. Fast response.</p>
-
-      <div class="hero-buttons">
-        <button class="cta-btn">📞 Call Now</button>
-        <button class="white-btn">Get a Free Quote</button>
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <div class="relative bg-indigo-900 min-h-[85vh] flex items-center">
+      <div class="absolute inset-0 z-0">
+        <img src="https://picsum.photos/seed/plumbervan/1920/1080" alt="Austin's Plumbing Service Truck"
+          class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-indigo-900/90 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 via-indigo-900/80 to-transparent"></div>
       </div>
 
-      <div class="badges">
-        <span>⭐ Rated 4.8 on Google</span>
-        <span>✔ Licensed & Insured</span>
-        <span>✔ Family Owned</span>
-        <span>✔ Same-Day Service</span>
-      </div>
-    </div>
-  </section>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-10 pb-16">
+        <div class="max-w-3xl">
+          <div
+            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-indigo-100 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/10">
+            <i data-lucide="clock" class="w-4 h-4 text-red-400"></i>
+            <span>24/7 Emergency Service Available</span>
+          </div>
 
-  <!-- Services -->
-  <section class="services">
-    <div class="container">
-      <h2 style="margin-bottom:40px;">Our Services</h2>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Philadelphia's Trusted Plumber — <span class="text-red-400">Ready When You Need Us.</span>
+          </h1>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Emergency Plumbing</h3>
-          <p>Fast response when you need help immediately.</p>
-        </div>
+          <p class="text-lg md:text-xl text-indigo-100 mb-10 max-w-2xl leading-relaxed">
+            Fast response, licensed, and insured. We handle everything from emergency leaks to full installations with
+            the care your home deserves.
+          </p>
 
-        <div class="card">
-          <h3>Drain Cleaning</h3>
-          <p>Clear stubborn clogs and restore flow.</p>
-        </div>
+          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+            <button
+              class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-600/20 text-lg transition-colors">
+              <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+              Call Now: 267-320-0081
+            </button>
+            <button
+              class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold border-2 border-white text-white hover:bg-white/10 text-lg transition-colors">
+              Get a Free Quote
+            </button>
+          </div>
 
-        <div class="card">
-          <h3>Water Heaters</h3>
-          <p>Repair or replace for reliable hot water.</p>
-        </div>
-
-        <div class="card">
-          <h3>Sewer Lines</h3>
-          <p>Inspection, repair, and replacement.</p>
-        </div>
-
-        <div class="card">
-          <h3>Fixture Installation</h3>
-          <p>Upgrade kitchens, baths, and more.</p>
-        </div>
-
-        <div class="card">
-          <h3>Commercial Services</h3>
-          <p>Dependable plumbing for your business.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose -->
-  <section class="why">
-    <div class="container why-inner">
-      <img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?q=80&w=1974&auto=format&fit=crop">
-
-      <div>
-        <h2>Plumbing Done Right — The First Time</h2>
-        <br>
-        <ul>
-          <li>✔ Master licensed plumber</li>
-          <li>✔ Fully stocked trucks</li>
-          <li>✔ Transparent recommendations</li>
-          <li>✔ Respect for your home</li>
-          <li>✔ Fast turnaround</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mid CTA -->
-  <section class="cta-strip">
-    <h2>Need a Plumber Fast?</h2>
-    <p>Call now — we’re ready.</p>
-    <button>📞 Call Now</button>
-  </section>
-
-  <!-- Reviews -->
-  <section class="reviews">
-    <div class="container">
-      <h2 style="margin-bottom:40px;">See Why Philadelphia Trusts Us</h2>
-
-      <div class="grid">
-        <div class="review-card">
-          ⭐⭐⭐⭐⭐
-          <p>"Arrived quickly and fixed our issue the same day. Highly recommend!"</p>
-          <strong>— Sarah M.</strong>
-        </div>
-
-        <div class="review-card">
-          ⭐⭐⭐⭐⭐
-          <p>"Professional, honest, and very skilled."</p>
-          <strong>— James R.</strong>
-        </div>
-
-        <div class="review-card">
-          ⭐⭐⭐⭐⭐
-          <p>"Best plumber we've used in Philly."</p>
-          <strong>— Kevin L.</strong>
+          <div class="flex flex-wrap items-center gap-y-4 gap-x-8 text-sm md:text-base font-medium text-white/90">
+            <div class="flex items-center gap-2">
+              <div class="flex text-yellow-400">
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              </div>
+              <span class="text-white">4.8 on Google</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5 text-red-400"></i>
+              <span>Licensed & Insured</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5 text-red-400"></i>
+              <span>Family Owned</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="clock" class="w-5 h-5 text-red-400"></i>
+              <span>Same-Day Service</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Final CTA -->
-  <section class="final-cta">
-    <h2>Plumbing Problem? Let’s Fix It Today.</h2>
-    <br>
-    <button class="cta-btn">Call Now</button>
-  </section>
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Expert Plumbing Services</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            From small repairs to major installations, our master plumbers have the skills and tools to get the job done
+            right.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service Cards -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            <div
+              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="droplets" class="w-8 h-8 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Emergency Plumbing</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Burst pipes, major leaks, or overflowing toilets. We respond
+              fast to minimize damage.</p>
+            <a href="#"
+              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            <div
+              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="wrench" class="w-8 h-8 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Drain Cleaning</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Slow drains or clogs cleared quickly with professional grade
+              equipment.</p>
+            <a href="#"
+              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            <div
+              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="flame" class="w-8 h-8 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Water Heaters</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Installation and repair of tankless and standard water
+              heaters. Restore your hot water today.</p>
+            <a href="#"
+              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            <div
+              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="construction" class="w-8 h-8 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Sewer Line Repair</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Video inspections and trenchless repair options for main sewer
+              line issues.</p>
+            <a href="#"
+              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            <div
+              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="hammer" class="w-8 h-8 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Fixture Installation</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Upgrade your bathroom or kitchen with new faucets, toilets,
+              sinks, and showers.</p>
+            <a href="#"
+              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            <div
+              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="wrench" class="w-8 h-8 text-red-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Services</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Reliable plumbing maintenance and repair for businesses and
+              property managers.</p>
+            <a href="#"
+              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="relative">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img src="https://picsum.photos/seed/technician/800/1000" alt="Austin's Plumbing Technician at work"
+                class="w-full h-full object-cover" />
+            </div>
+            <div
+              class="absolute -bottom-6 -right-6 bg-red-600 text-white p-6 rounded-xl shadow-xl hidden md:block max-w-xs">
+              <p class="font-bold text-xl mb-1">Since 2017</p>
+              <p class="text-red-100 text-sm">Serving Philadelphia neighborhoods with pride.</p>
+            </div>
+          </div>
+
+          <div>
+            <span class="text-red-600 font-bold tracking-wider uppercase text-sm mb-2 block">Why Choose Us</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              Plumbing Done Right — <br />The First Time.
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">
+              We know inviting a contractor into your home requires trust. That's why we focus on communication,
+              cleanliness, and craftsmanship. When you call Austin's, you get a neighbor who cares about the result.
+            </p>
+
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                <span class="text-gray-800 font-medium text-lg">Master Licensed Plumbers</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                <span class="text-gray-800 font-medium text-lg">Fully Stocked Trucks</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                <span class="text-gray-800 font-medium text-lg">Transparent, Upfront Pricing</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                <span class="text-gray-800 font-medium text-lg">Respect for Your Home (Shoe Covers)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                <span class="text-gray-800 font-medium text-lg">Fast Turnaround Times</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
+                <span class="text-gray-800 font-medium text-lg">100% Satisfaction Guarantee</span>
+              </li>
+            </ul>
+
+            <div class="mt-10 pt-8 border-t border-gray-100">
+              <div class="flex items-center gap-4">
+                <div class="text-indigo-900 font-bold">
+                  <span class="block text-3xl">400+</span>
+                  <span class="text-sm text-gray-500 font-normal">Happy Customers</span>
+                </div>
+                <div class="w-px h-12 bg-gray-200"></div>
+                <div class="text-indigo-900 font-bold">
+                  <span class="block text-3xl">24/7</span>
+                  <span class="text-sm text-gray-500 font-normal">Emergency Support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mid Page CTA -->
+    <section class="bg-red-600 py-16 text-white text-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Need a Plumber Fast?</h2>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button
+            class="inline-flex items-center justify-center px-8 py-3 rounded-md font-semibold bg-white text-red-600 hover:bg-gray-100 shadow-lg text-lg transition-colors">
+            <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+            Call Now — We're Ready
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="py-16 md:py-24 bg-indigo-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">See Why Philadelphia Trusts Austin's</h2>
+          <p class="text-indigo-200 text-lg">Real reviews from your neighbors.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors">
+            <div class="flex gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-gray-200 mb-6 italic leading-relaxed">"Austin's Plumbing saved the day! We had a pipe burst
+              at 2 AM and they were there within the hour. Professional, clean, and fair pricing."</p>
+            <div>
+              <p class="font-bold text-white">Sarah Jenkins</p>
+              <p class="text-sm text-indigo-300">Fishtown</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors">
+            <div class="flex gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-gray-200 mb-6 italic leading-relaxed">"Finally a plumber who shows up when they say they
+              will. Fixed our tankless water heater issues in one visit. Highly recommend."</p>
+            <div>
+              <p class="font-bold text-white">Mike Rossini</p>
+              <p class="text-sm text-indigo-300">South Philly</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors">
+            <div class="flex gap-1 text-yellow-400 mb-4">
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-gray-200 mb-6 italic leading-relaxed">"Professional from start to finish. They explained
+              exactly what needed to be done and didn't try to upsell me on things I didn't need."</p>
+            <div>
+              <p class="font-bold text-white">Elena Rodriguez</p>
+              <p class="text-sm text-indigo-300">Center City</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#"
+            class="inline-block text-white border-b border-red-500 pb-1 hover:text-red-400 transition-colors">Read all
+            Google Reviews &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Area -->
+    <section id="service-area" class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Proudly Serving Philadelphia</h2>
+            <p class="text-lg text-gray-600 mb-6">
+              From Center City to the suburbs, our trucks are fully stocked and ready to roll. We've been serving the
+              local community since 2017 with reliable, high-quality plumbing services.
+            </p>
+            <ul class="grid grid-cols-2 gap-3 mb-8">
+              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
+                  class="w-4 h-4 text-red-600 mr-2"></i>Center City</li>
+              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
+                  class="w-4 h-4 text-red-600 mr-2"></i>South Philly</li>
+              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
+                  class="w-4 h-4 text-red-600 mr-2"></i>Fishtown</li>
+              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
+                  class="w-4 h-4 text-red-600 mr-2"></i>Northern Liberties</li>
+              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
+                  class="w-4 h-4 text-red-600 mr-2"></i>University City</li>
+              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
+                  class="w-4 h-4 text-red-600 mr-2"></i>Manayunk</li>
+            </ul>
+          </div>
+          <div class="relative rounded-xl overflow-hidden shadow-lg bg-gray-100 h-80 w-full">
+            <img src="https://picsum.photos/seed/phillymap/800/600" alt="Service Area Map"
+              class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-indigo-900/10 pointer-events-none"></div>
+            <div class="absolute bottom-4 left-4 bg-white p-3 rounded shadow-md">
+              <p class="font-bold text-indigo-900 text-sm">Serving Greater Philadelphia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Preview -->
+    <section id="about" class="py-16 md:py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1">
+            <img src="https://picsum.photos/seed/plumberteam/600/600" alt="Austin's Plumbing Team"
+              class="rounded-lg shadow-xl" />
+          </div>
+          <div class="order-1 md:order-2">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Family-Owned. Built on Trust.</h2>
+            <p class="text-lg text-gray-600 mb-6">
+              We started Austin's Plumbing in 2017 with a simple mission: be the plumber you'd recommend to your
+              neighbor. No hidden fees, no sales gimmicks—just honest work done right the first time.
+            </p>
+            <p class="text-lg text-gray-600 mb-8">
+              We live here, we work here, and we treat your home with the same respect we treat our own.
+            </p>
+            <button
+              class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold border-2 border-indigo-900 text-indigo-900 hover:bg-indigo-50 focus:ring-indigo-900 transition-colors">
+              Learn More About Us <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="bg-indigo-900 py-20 text-white text-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6">Plumbing Problem? Let's Fix It Today.</h2>
+        <p class="text-indigo-100 text-xl mb-10 max-w-2xl mx-auto">
+          Don't let a small leak turn into a big disaster. Our licensed experts are standing by.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button
+            class="inline-flex items-center justify-center px-10 py-4 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-600/20 text-lg transition-colors">
+            <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+            Call Now: 267-320-0081
+          </button>
+          <button
+            class="inline-flex items-center justify-center px-10 py-4 rounded-md font-semibold bg-white text-indigo-900 hover:bg-gray-100 shadow-lg text-lg transition-colors">
+            Get a Free Quote
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      Austin's Plumbing • Philadelphia, PA
-      <br><br>
-      © 2025 Austin's Plumbing. All rights reserved.
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Brand Column -->
+        <div>
+          <div class="text-2xl font-bold text-white font-serif mb-6">Austin's Plumbing</div>
+          <p class="mb-6 text-gray-400 leading-relaxed">
+            Philadelphia's trusted, fast-response plumbing experts. Licensed, insured, and ready to help 24/7.
+          </p>
+          <div className="flex gap-4">
+            <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-red-600 hover:text-white transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-red-600 hover:text-white transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Column -->
+        <div>
+          <h3 class="text-white font-bold text-lg mb-6">Contact Us</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-red-500 flex-shrink-0 mt-1"></i>
+              <span>2525 E Gordon Street<br />Philadelphia PA 19125</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-5 h-5 text-red-500 flex-shrink-0"></i>
+              <a href="tel:267-320-0081" class="hover:text-white">267-320-0081</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-red-500 flex-shrink-0"></i>
+              <a href="mailto:info@austinsplumbing.us" class="hover:text-white">info@austinsplumbing.us</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services Column -->
+        <div>
+          <h3 class="text-white font-bold text-lg mb-6">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:text-red-500 transition-colors">Emergency Plumbing</a></li>
+            <li><a href="#" class="hover:text-red-500 transition-colors">Drain Cleaning</a></li>
+            <li><a href="#" class="hover:text-red-500 transition-colors">Water Heater Repair</a></li>
+            <li><a href="#" class="hover:text-red-500 transition-colors">Sewer Line Inspection</a></li>
+            <li><a href="#" class="hover:text-red-500 transition-colors">Leak Detection</a></li>
+            <li><a href="#" class="hover:text-red-500 transition-colors">Commercial Plumbing</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Links / Hours -->
+        <div>
+          <h3 class="text-white font-bold text-lg mb-6">Hours</h3>
+          <ul class="space-y-3 mb-6">
+            <li class="flex justify-between">
+              <span>Mon - Fri:</span>
+              <span className="text-white">7:00 AM - 5:00 PM</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Saturday:</span>
+              <span className="text-white">By Appointment</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Sunday:</span>
+              <span className="text-white">Emergency Only</span>
+            </li>
+          </ul>
+          <div class="bg-gray-800 p-4 rounded border-l-4 border-red-500">
+            <p className="text-white font-bold text-sm">24/7 Emergency Service</p>
+            <p className="text-xs text-gray-400 mt-1">Available for urgent repairs anytime.</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>&copy; 2024 Austin's Plumbing Service LLC. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-4 h-4"></i> Master Plumber
+            Licensed</span>
+          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-4 h-4"></i> Fully Insured</span>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Floating Call Button -->
-  <a href="tel:12673200081" class="call-now">📞 Call Now</a>
+  <!-- Interactive Scripts -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
 
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('shadow-md');
+      } else {
+        navbar.classList.remove('shadow-md');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let isMenuOpen = false;
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          mobileMenu.classList.add('open');
+        } else {
+          mobileMenu.classList.remove('open');
+        }
+      });
+
+      // Close mobile menu on link click
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          isMenuOpen = false;
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>
