@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Austin's Plumbing | Philadelphia Plumber</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* -------------------------
+GLOBAL STYLES
+--------------------------*/
+
+    :root {
+      --indigo: #3F3A63;
+      --red: #D64545;
+      --gray: #F4F5F7;
+      --charcoal: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Roboto Slab', serif;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* -------------------------
+UTILITY BAR
+--------------------------*/
+
+    .utility {
+      background: var(--indigo);
+      color: white;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+
+    .utility .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* -------------------------
+NAVIGATION
+--------------------------*/
+
+    nav {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--indigo);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+
+    .cta-btn {
+      background: var(--red);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 6px;
+    }
+
+    .cta-btn:hover {
+      background: #c53b3b;
+    }
+
+    /* -------------------------
+HERO
+--------------------------*/
+
+    .hero {
+      height: 85vh;
+      background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(63, 58, 99, .75);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      color: white;
+      max-width: 650px;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      margin-bottom: 24px;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .white-btn {
+      background: white;
+      color: var(--indigo);
+      padding: 14px 20px;
+      border-radius: 6px;
+    }
+
+    .badges {
+      margin-top: 28px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    /* -------------------------
+SERVICES
+--------------------------*/
+
+    .services {
+      background: var(--gray);
+      padding: 80px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* -------------------------
+WHY CHOOSE US
+--------------------------*/
+
+    .why {
+      padding: 80px 0;
+    }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .why img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* -------------------------
+CTA STRIP
+--------------------------*/
+
+    .cta-strip {
+      background: var(--red);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cta-strip button {
+      background: white;
+      color: var(--red);
+      padding: 14px 24px;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+
+    /* -------------------------
+REVIEWS
+--------------------------*/
+
+    .reviews {
+      padding: 80px 0;
+      background: var(--gray);
+    }
+
+    .review-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    }
+
+    /* -------------------------
+FINAL CTA
+--------------------------*/
+
+    .final-cta {
+      background: var(--indigo);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    /* -------------------------
+FOOTER
+--------------------------*/
+
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 40px 0;
+      font-size: 14px;
+    }
+
+    /* -------------------------
+MOBILE
+--------------------------*/
+
+    @media(max-width:900px) {
+
+      .why-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Sticky Mobile Call Button */
+
+    .call-now {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--red);
+      color: white;
+      padding: 16px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Utility Bar -->
+  <div class="utility">
+    <div class="container">
+      <div>📞 Call Now: <strong>267-320-0081</strong></div>
+      <div>Serving Philadelphia & Surrounding Areas</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Austin's Plumbing</div>
+
+      <div class="nav-links">
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Reviews</a>
+        <a href="#">Service Areas</a>
+        <a href="#">Contact</a>
+        <a class="cta-btn" href="#">Get a Free Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Philadelphia’s Trusted Plumber — Ready When You Need Us</h1>
+      <p>24/7 emergency service. Licensed. Insured. Fast response.</p>
+
+      <div class="hero-buttons">
+        <button class="cta-btn">📞 Call Now</button>
+        <button class="white-btn">Get a Free Quote</button>
+      </div>
+
+      <div class="badges">
+        <span>⭐ Rated 4.8 on Google</span>
+        <span>✔ Licensed & Insured</span>
+        <span>✔ Family Owned</span>
+        <span>✔ Same-Day Service</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <div class="container">
+      <h2 style="margin-bottom:40px;">Our Services</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Emergency Plumbing</h3>
+          <p>Fast response when you need help immediately.</p>
+        </div>
+
+        <div class="card">
+          <h3>Drain Cleaning</h3>
+          <p>Clear stubborn clogs and restore flow.</p>
+        </div>
+
+        <div class="card">
+          <h3>Water Heaters</h3>
+          <p>Repair or replace for reliable hot water.</p>
+        </div>
+
+        <div class="card">
+          <h3>Sewer Lines</h3>
+          <p>Inspection, repair, and replacement.</p>
+        </div>
+
+        <div class="card">
+          <h3>Fixture Installation</h3>
+          <p>Upgrade kitchens, baths, and more.</p>
+        </div>
+
+        <div class="card">
+          <h3>Commercial Services</h3>
+          <p>Dependable plumbing for your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section class="why">
+    <div class="container why-inner">
+      <img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?q=80&w=1974&auto=format&fit=crop">
+
+      <div>
+        <h2>Plumbing Done Right — The First Time</h2>
+        <br>
+        <ul>
+          <li>✔ Master licensed plumber</li>
+          <li>✔ Fully stocked trucks</li>
+          <li>✔ Transparent recommendations</li>
+          <li>✔ Respect for your home</li>
+          <li>✔ Fast turnaround</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid CTA -->
+  <section class="cta-strip">
+    <h2>Need a Plumber Fast?</h2>
+    <p>Call now — we’re ready.</p>
+    <button>📞 Call Now</button>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews">
+    <div class="container">
+      <h2 style="margin-bottom:40px;">See Why Philadelphia Trusts Us</h2>
+
+      <div class="grid">
+        <div class="review-card">
+          ⭐⭐⭐⭐⭐
+          <p>"Arrived quickly and fixed our issue the same day. Highly recommend!"</p>
+          <strong>— Sarah M.</strong>
+        </div>
+
+        <div class="review-card">
+          ⭐⭐⭐⭐⭐
+          <p>"Professional, honest, and very skilled."</p>
+          <strong>— James R.</strong>
+        </div>
+
+        <div class="review-card">
+          ⭐⭐⭐⭐⭐
+          <p>"Best plumber we've used in Philly."</p>
+          <strong>— Kevin L.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Plumbing Problem? Let’s Fix It Today.</h2>
+    <br>
+    <button class="cta-btn">Call Now</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      Austin's Plumbing • Philadelphia, PA
+      <br><br>
+      © 2025 Austin's Plumbing. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Floating Call Button -->
+  <a href="tel:12673200081" class="call-now">📞 Call Now</a>
+
+</body>
+
+</html>
