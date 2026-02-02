@@ -6,11 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Austin's Plumbing | Philadelphia's Trusted Plumber</title>
   <meta name="description"
-    content="Austin's Plumbing - Philadelphia's trusted, fast-response plumbing experts delivering dependable service 24/7." />
+    content="Austin's Plumbing - The Philly Plumber you can trust. Licensed (RMP 059787), insured, and serving Philadelphia 24/7." />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Added Montserrat as requested in Brand Guide -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700;900&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -18,32 +23,43 @@
       theme: {
         extend: {
           colors: {
-            indigo: {
-              900: '#3F3A63', // Plumbing Indigo
+            navy: {
+              800: '#0B2545', // Midnight Navy (Primary)
+              900: '#051525', // Darkest Navy (Footer)
             },
-            red: {
-              600: '#D64545', // Service Red
-              700: '#B53535',
+            cream: {
+              100: '#FFFDD0', // Vintage Cream
+              50: '#FFFEF0', // Lighter Cream
+            },
+            blue: {
+              400: '#4A90E2', // Sky Blue
+            },
+            orange: {
+              500: '#E03E2F', // Safety Orange (CTA)
+              600: '#C02E20', // Hover
+            },
+            denim: {
+              700: '#2A4B7C',
             },
             gray: {
-              50: '#F4F5F7', // Clean Gray
-              900: '#333333', // Charcoal
-            },
-            yellow: {
-              400: '#FFC857', // Rating Gold
+              50: '#F9FAFB',
+              900: '#333333',
             }
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Montserrat', 'sans-serif'],
             serif: ['Roboto Slab', 'serif'],
           },
+          backgroundImage: {
+            'hero-pattern': "linear-gradient(to right bottom, rgba(11, 37, 69, 0.9), rgba(11, 37, 69, 0.7)), url('skyline-bg.png')",
+          }
         },
       },
     };
   </script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       color: #333333;
     }
 
@@ -65,63 +81,74 @@
     }
 
     #mobile-menu.open {
-      max-height: 500px;
+      max-height: 100vh;
       opacity: 1;
+    }
+
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
   </style>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="min-h-screen flex flex-col font-sans">
+<body class="min-h-screen flex flex-col font-sans text-gray-900">
 
-  <!-- Utility Bar -->
-  <div class="bg-indigo-900 text-white py-2 text-sm hidden md:block z-50 relative">
+  <!-- Section 1: Emergency Utility Bar -->
+  <div class="bg-navy-800 text-white py-2 text-sm z-50 relative border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center">
-        <div class="flex items-center gap-2 font-medium">
-          <i data-lucide="phone" class="w-4 h-4 text-red-400"></i>
-          <span>Call Now: 267-320-0081</span>
+        <div class="flex items-center gap-2 font-bold mobile-tap-target">
+          <i data-lucide="phone" class="w-4 h-4 text-orange-500 fill-current"></i>
+          <a href="tel:267-320-0081" class="hover:text-orange-400 transition-colors">Call Now: (267) 320-0081</a>
         </div>
-        <div class="text-indigo-200">
-          Serving Philadelphia & Surrounding Areas
+        <div class="hidden md:flex items-center gap-4 text-gray-300 text-xs tracking-wide">
+          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3 h-3"></i> Licensed & Insured
+            (RMP 059787)</span>
+          <span class="w-px h-3 bg-gray-600"></span>
+          <span>Serving Philadelphia</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Main Nav -->
+  <!-- Section 2: Navigation -->
   <nav id="navbar" class="bg-white border-b border-gray-100 sticky top-0 z-40 transition-shadow duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <!-- Logo -->
-        <div class="flex items-center gap-2">
-          <img src="logo.png" alt="Austin's Plumbing logo"
-            class="w-12 h-10 rounded-full object-cover" />
-          <div class="flex flex-col">
-            <span class="text-xl font-bold text-indigo-900 leading-none font-serif tracking-tight">Austin's</span>
-            <span class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Plumbing</span>
+        <a href="#" class="flex items-center gap-3 group">
+          <!-- Final Badge Logo -->
+          <div
+            class="w-16 h-16 rounded-full border-2 border-orange-500 shadow-lg group-hover:scale-105 transition-transform bg-navy-800 overflow-hidden relative">
+            <img src="hero-mascot.png" alt="Austin's Plumbing Badge Logo" class="scale-150 absolute top-3" />
           </div>
-        </div>
+          <div class="flex flex-col">
+            <span
+              class="text-2xl font-black text-navy-800 leading-none font-serif tracking-tight group-hover:text-orange-500 transition-colors">AUSTIN'S</span>
+            <span class="text-xs font-bold text-gray-500 tracking-widest uppercase">Plumbing Service LLC</span>
+          </div>
+        </a>
 
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-8">
-          <a href="#services" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Services</a>
-          <a href="#about" class="text-gray-700 hover:text-red-600 font-medium transition-colors">About</a>
-          <a href="#reviews" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Reviews</a>
-          <a href="#service-area" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Service
+          <a href="#services" class="text-navy-800 font-semibold hover:text-orange-500 transition-colors">Services</a>
+          <a href="#about" class="text-navy-800 font-semibold hover:text-orange-500 transition-colors">About</a>
+          <a href="#reviews" class="text-navy-800 font-semibold hover:text-orange-500 transition-colors">Reviews</a>
+          <a href="#service-area" class="text-navy-800 font-semibold hover:text-orange-500 transition-colors">Service
             Areas</a>
-          <a href="#contact" class="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</a>
+          <a href="#contact" class="text-navy-800 font-semibold hover:text-orange-500 transition-colors">Contact</a>
           <button
-            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-600/20 focus:ring-red-600 transition-all duration-200">
-            Get a Free Quote
+            class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/20 transition-all duration-200 transform hover:-translate-y-0.5">
+            Get a Free Estimate
           </button>
         </div>
 
         <!-- Mobile Menu Button -->
         <div class="md:hidden">
-          <button id="mobile-menu-btn" class="text-gray-700 p-2">
-            <i data-lucide="menu" class="w-6 h-6"></i>
+          <button id="mobile-menu-btn" class="text-navy-800 p-2">
+            <i data-lucide="menu" class="w-7 h-7"></i>
           </button>
         </div>
       </div>
@@ -130,191 +157,235 @@
     <!-- Mobile Menu Dropdown -->
     <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
       <div class="flex flex-col p-4 space-y-4">
-        <a href="#services" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Services</a>
-        <a href="#about" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">About</a>
-        <a href="#reviews" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Reviews</a>
-        <a href="#service-area" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Service
+        <a href="#services"
+          class="mobile-link text-navy-800 font-bold text-lg py-2 border-b border-gray-50">Services</a>
+        <a href="#about" class="mobile-link text-navy-800 font-bold text-lg py-2 border-b border-gray-50">About</a>
+        <a href="#reviews" class="mobile-link text-navy-800 font-bold text-lg py-2 border-b border-gray-50">Reviews</a>
+        <a href="#service-area" class="mobile-link text-navy-800 font-bold text-lg py-2 border-b border-gray-50">Service
           Areas</a>
-        <a href="#contact" class="mobile-link text-gray-800 font-medium py-2 border-b border-gray-50">Contact</a>
+        <a href="#contact" class="mobile-link text-navy-800 font-bold text-lg py-2 border-b border-gray-50">Contact</a>
         <button
-          class="w-full inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg">
-          Get a Free Quote
+          class="w-full inline-flex items-center justify-center px-6 py-4 rounded-lg font-bold bg-orange-500 hover:bg-orange-600 text-white shadow-lg text-lg">
+          Get a Free Estimate
         </button>
-        <a href="tel:267-320-0081"
-          class="flex items-center justify-center gap-2 text-indigo-900 font-bold py-3 bg-gray-50 rounded mt-2">
-          <i data-lucide="phone" class="w-4 h-4"></i>
-          Call 267-320-0081
-        </a>
+        <div class="pt-2">
+          <a href="tel:267-320-0081"
+            class="flex items-center justify-center gap-2 text-white font-bold py-4 bg-navy-800 rounded-lg shadow-lg">
+            <i data-lucide="phone" class="w-5 h-5 fill-current"></i>
+            Call (267) 320-0081
+          </a>
+          <p class="text-center text-xs text-gray-500 mt-2">Licensed & Insured RMP 059787</p>
+        </div>
+
       </div>
     </div>
   </nav>
 
   <main class="flex-grow">
-    <!-- Hero Section -->
-    <div class="relative bg-indigo-900 min-h-[85vh] flex items-center">
-      <div class="absolute inset-0 z-0">
-        <img src="https://picsum.photos/seed/plumbervan/1920/1080" alt="Austin's Plumbing Service Truck"
-          class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-indigo-900/90 mix-blend-multiply"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 via-indigo-900/80 to-transparent"></div>
-      </div>
+    <!-- Section 3: Hero (2-Column) -->
+    <div class="relative bg-navy-800 min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 z-0 bg-hero-pattern bg-cover bg-center"></div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-10 pb-16">
-        <div class="max-w-3xl">
-          <div
-            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-indigo-100 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/10">
-            <i data-lucide="clock" class="w-4 h-4 text-red-400"></i>
-            <span>24/7 Emergency Service Available</span>
+      <!-- Content -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-12 pb-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <!-- Left: Text -->
+          <div class="text-white order-2 lg:order-1">
+            <div
+              class="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/50 text-orange-200 px-4 py-1.5 rounded-full text-sm font-bold mb-6 backdrop-blur-sm">
+              <i data-lucide="clock" class="w-4 h-4 text-orange-500"></i>
+              <span class="uppercase tracking-wider">24/7 Emergency Service</span>
+            </div>
+
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-shadow">
+              The Philly Plumber <span class="text-orange-500">You Can Trust.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-xl leading-relaxed font-medium">
+              Fast response, master plumber standards, and old-school work ethic. We show up when we say we will.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-12">
+              <a href="tel:267-320-0081"
+                class="inline-flex items-center justify-center px-8 py-4 rounded-full font-bold bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/30 text-lg transition-transform hover:-translate-y-1">
+                <i data-lucide="phone" class="w-6 h-6 mr-3 fill-current"></i>
+                Call (267) 320-0081
+              </a>
+              <button
+                class="inline-flex items-center justify-center px-8 py-4 rounded-full font-bold border-2 border-white text-white hover:bg-white hover:text-navy-800 text-lg transition-colors">
+                Request Service Online
+              </button>
+            </div>
+
+            <!-- License in Hero -->
+            <p class="text-sm text-gray-400 font-medium">
+              <i data-lucide="check-circle" class="w-4 h-4 inline-block text-orange-500 mr-1"></i>
+              Fully Licensed & Insured (RMP 059787)
+            </p>
           </div>
 
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Philadelphia's Trusted Plumber — <span class="text-red-400">Ready When You Need Us.</span>
-          </h1>
+          <!-- Right: Visual (Mascot Placeholder) -->
+          <div class="order-1 lg:order-2 flex justify-center lg:justify-end relative">
+            <!-- Using a stand-in image for the Mascot -->
+            <img src="https://picsum.photos/seed/phillyplumber/600/700" alt="The Philly Plumber Mascot"
+              class="w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl transform lg:scale-110" />
 
-          <p class="text-lg md:text-xl text-indigo-100 mb-10 max-w-2xl leading-relaxed">
-            Fast response, licensed, and insured. We handle everything from emergency leaks to full installations with
-            the care your home deserves.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4 mb-12">
-            <button
-              class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-600/20 text-lg transition-colors">
-              <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
-              Call Now: 267-320-0081
-            </button>
-            <button
-              class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold border-2 border-white text-white hover:bg-white/10 text-lg transition-colors">
-              Get a Free Quote
-            </button>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-y-4 gap-x-8 text-sm md:text-base font-medium text-white/90">
-            <div class="flex items-center gap-2">
-              <div class="flex text-yellow-400">
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <!-- Floating Card -->
+            <div
+              class="absolute bottom-10 -left-6 bg-white p-4 rounded-xl shadow-2xl max-w-xs hidden md:block transform -rotate-2">
+              <div class="flex items-center gap-3">
+                <div class="bg-green-100 p-2 rounded-full">
+                  <i data-lucide="map-pin" class="w-6 h-6 text-green-600"></i>
+                </div>
+                <div>
+                  <p class="font-bold text-navy-800">Local Expert</p>
+                  <p class="text-xs text-gray-500">Serving your neighborhood now</p>
+                </div>
               </div>
-              <span class="text-white">4.8 on Google</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="shield-check" class="w-5 h-5 text-red-400"></i>
-              <span>Licensed & Insured</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="shield-check" class="w-5 h-5 text-red-400"></i>
-              <span>Family Owned</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="clock" class="w-5 h-5 text-red-400"></i>
-              <span>Same-Day Service</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 md:py-24 bg-gray-50">
+    <!-- Section 4: Trust Indicators (Badge Row) -->
+    <section class="bg-cream-100 py-10 border-b border-orange-500/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="flex items-center gap-3 justify-center md:justify-start">
+            <div class="bg-navy-800 p-3 rounded-full text-white">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="font-bold text-navy-800 leading-tight">Licensed & Insured</p>
+              <p class="text-xs text-slate-600">Full Protection</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 justify-center md:justify-start">
+            <div class="bg-navy-800 p-3 rounded-full text-white">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="font-bold text-navy-800 leading-tight">RMP 059787</p>
+              <p class="text-xs text-slate-600">Master Plumber</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 justify-center md:justify-start">
+            <div class="bg-navy-800 p-3 rounded-full text-white">
+              <i data-lucide="star" class="w-6 h-6 fill-current text-yellow-400"></i>
+            </div>
+            <div>
+              <p class="font-bold text-navy-800 leading-tight">5-Star Rated</p>
+              <p class="text-xs text-slate-600">Google Reviews</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 justify-center md:justify-start">
+            <div class="bg-navy-800 p-3 rounded-full text-white">
+              <i data-lucide="tag" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="font-bold text-navy-800 leading-tight">Upfront Pricing</p>
+              <p class="text-xs text-slate-600">No Surprises</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Services Grid -->
+    <section id="services" class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Expert Plumbing Services</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            From small repairs to major installations, our master plumbers have the skills and tools to get the job done
-            right.
+          <h2 class="text-3xl md:text-5xl font-black text-navy-800 mb-4">Complete Plumbing Services</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+            From emergency repairs in South Philly to renovations on the Main Line. We handle it all.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Service Cards -->
+          <!-- Service Card Template -->
           <div
-            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-navy-800 hover:bg-white hover:shadow-2xl transition-all duration-300 group">
             <div
-              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="droplets" class="w-8 h-8 text-red-600"></i>
+              class="bg-blue-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-navy-800 group-hover:bg-navy-800 group-hover:text-white transition-colors">
+              <i data-lucide="droplets" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Emergency Plumbing</h3>
+            <h3 class="text-xl font-bold text-navy-800 mb-3">Emergency Repairs</h3>
             <p class="text-gray-600 mb-6 leading-relaxed">Burst pipes, major leaks, or overflowing toilets. We respond
-              fast to minimize damage.</p>
-            <a href="#"
-              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              fast to minimize damage to your home.</p>
+            <a href="#" class="inline-flex items-center font-bold text-orange-500 hover:text-orange-600">
               Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </a>
           </div>
 
           <div
-            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-navy-800 hover:bg-white hover:shadow-2xl transition-all duration-300 group">
             <div
-              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="wrench" class="w-8 h-8 text-red-600"></i>
+              class="bg-blue-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-navy-800 group-hover:bg-navy-800 group-hover:text-white transition-colors">
+              <i data-lucide="wrench" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Drain Cleaning</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">Slow drains or clogs cleared quickly with professional grade
-              equipment.</p>
-            <a href="#"
-              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+            <h3 class="text-xl font-bold text-navy-800 mb-3">Drain Cleaning</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Slow drains or stubborn clogs cleared quickly with
+              professional grade equipment. No chemical gimmicks.</p>
+            <a href="#" class="inline-flex items-center font-bold text-orange-500 hover:text-orange-600">
               Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </a>
           </div>
 
           <div
-            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-navy-800 hover:bg-white hover:shadow-2xl transition-all duration-300 group">
             <div
-              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="flame" class="w-8 h-8 text-red-600"></i>
+              class="bg-blue-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-navy-800 group-hover:bg-navy-800 group-hover:text-white transition-colors">
+              <i data-lucide="flame" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Water Heaters</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">Installation and repair of tankless and standard water
+            <h3 class="text-xl font-bold text-navy-800 mb-3">Water Heaters</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Expert installation and repair of standard and tankless water
               heaters. Restore your hot water today.</p>
-            <a href="#"
-              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+            <a href="#" class="inline-flex items-center font-bold text-orange-500 hover:text-orange-600">
               Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </a>
           </div>
 
           <div
-            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-navy-800 hover:bg-white hover:shadow-2xl transition-all duration-300 group">
             <div
-              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="construction" class="w-8 h-8 text-red-600"></i>
+              class="bg-blue-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-navy-800 group-hover:bg-navy-800 group-hover:text-white transition-colors">
+              <i data-lucide="search" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Sewer Line Repair</h3>
+            <h3 class="text-xl font-bold text-navy-800 mb-3">Leak Detection</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Hidden leaks can destroy your foundation. We use advanced
+              technology to find and fix them non-invasively.</p>
+            <a href="#" class="inline-flex items-center font-bold text-orange-500 hover:text-orange-600">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </a>
+          </div>
+
+          <div
+            class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-navy-800 hover:bg-white hover:shadow-2xl transition-all duration-300 group">
+            <div
+              class="bg-blue-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-navy-800 group-hover:bg-navy-800 group-hover:text-white transition-colors">
+              <i data-lucide="construction" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-bold text-navy-800 mb-3">Sewer Lines</h3>
             <p class="text-gray-600 mb-6 leading-relaxed">Video inspections and trenchless repair options for main sewer
-              line issues.</p>
-            <a href="#"
-              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+              line issues. Full replacements available.</p>
+            <a href="#" class="inline-flex items-center font-bold text-orange-500 hover:text-orange-600">
               Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </a>
           </div>
 
           <div
-            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+            class="bg-gray-50 p-8 rounded-2xl border-2 border-transparent hover:border-navy-800 hover:bg-white hover:shadow-2xl transition-all duration-300 group">
             <div
-              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="hammer" class="w-8 h-8 text-red-600"></i>
+              class="bg-blue-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-navy-800 group-hover:bg-navy-800 group-hover:text-white transition-colors">
+              <i data-lucide="home" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Fixture Installation</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">Upgrade your bathroom or kitchen with new faucets, toilets,
-              sinks, and showers.</p>
-            <a href="#"
-              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
-              Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-            </a>
-          </div>
-
-          <div
-            class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
-            <div
-              class="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="wrench" class="w-8 h-8 text-red-600"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Services</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">Reliable plumbing maintenance and repair for businesses and
-              property managers.</p>
-            <a href="#"
-              class="inline-flex items-center font-semibold text-indigo-900 hover:text-red-600 transition-colors">
+            <h3 class="text-xl font-bold text-navy-800 mb-3">Fixture Install</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">Upgrade your bathroom or kitchen. We install toilets, sinks,
+              faucets, and showers with precision.</p>
+            <a href="#" class="inline-flex items-center font-bold text-orange-500 hover:text-orange-600">
               Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </a>
           </div>
@@ -322,70 +393,162 @@
       </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="py-16 md:py-24 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section 6: Value Prop (Eagle/Mascot Theme) -->
+    <section class="py-20 bg-cream-50 overflow-hidden relative">
+      <!-- Decorator -->
+      <div class="absolute -right-20 -top-20 opacity-5 pointer-events-none">
+        <i data-lucide="anchor" class="w-96 h-96 text-navy-800"></i>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+          <!-- Text -->
+          <div>
+            <span class="text-orange-500 font-black tracking-widest uppercase text-sm mb-4 block">Our Philosophy</span>
+            <h2 class="text-4xl md:text-5xl font-black text-navy-800 mb-6 leading-tight">
+              Old School Work Ethic.<br />Modern Standards.
+            </h2>
+            <p class="text-lg text-gray-700 mb-8 font-medium">
+              We know inviting a contractor into your home requires trust. That's why we focus on transparency,
+              cleanliness, and craftsmanship. We're not a franchise; we're your neighbors.
+            </p>
+
+            <ul class="space-y-6">
+              <li class="flex items-start gap-4">
+                <div class="bg-navy-800 p-1.5 rounded-full mt-1">
+                  <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-navy-800 text-lg">Family Owned & Operated</h4>
+                  <p class="text-gray-600">No corporate red tape. You deal directly with us.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="bg-navy-800 p-1.5 rounded-full mt-1">
+                  <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-navy-800 text-lg">Master Plumber Standards</h4>
+                  <p class="text-gray-600">Every job is inspected for code compliance and quality.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="bg-navy-800 p-1.5 rounded-full mt-1">
+                  <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-navy-800 text-lg">Clean & Respectful</h4>
+                  <p class="text-gray-600">We wear shoe covers and clean up better than we found it.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image/Graphic -->
           <div class="relative">
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img src="https://picsum.photos/seed/technician/800/1000" alt="Austin's Plumbing Technician at work"
-                class="w-full h-full object-cover" />
-            </div>
-            <div
-              class="absolute -bottom-6 -right-6 bg-red-600 text-white p-6 rounded-xl shadow-xl hidden md:block max-w-xs">
-              <p class="font-bold text-xl mb-1">Since 2017</p>
-              <p class="text-red-100 text-sm">Serving Philadelphia neighborhoods with pride.</p>
+            <img src="https://picsum.photos/seed/truckphilly/800/600" alt="Austin's Plumbing Truck in Philadelphia"
+              class="rounded-3xl shadow-2xl border-4 border-white transform rotate-1" />
+            <div class="absolute -bottom-8 -left-8 bg-navy-800 text-white p-6 rounded-2xl shadow-xl max-w-xs">
+              <div class="flex items-center gap-3 mb-2">
+                <i data-lucide="flag" class="w-6 h-6 text-orange-500 fill-current"></i>
+                <span class="font-bold text-xl font-serif">Since 2017</span>
+              </div>
+              <p class="text-gray-300 text-sm">Serving Philadelphia neighborhoods with pride and integrity.</p>
             </div>
           </div>
 
-          <div>
-            <span class="text-red-600 font-bold tracking-wider uppercase text-sm mb-2 block">Why Choose Us</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Plumbing Done Right — <br />The First Time.
-            </h2>
-            <p class="text-lg text-gray-600 mb-8">
-              We know inviting a contractor into your home requires trust. That's why we focus on communication,
-              cleanliness, and craftsmanship. When you call Austin's, you get a neighbor who cares about the result.
-            </p>
+        </div>
+      </div>
+    </section>
 
-            <ul class="space-y-4">
-              <li class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                <span class="text-gray-800 font-medium text-lg">Master Licensed Plumbers</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                <span class="text-gray-800 font-medium text-lg">Fully Stocked Trucks</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                <span class="text-gray-800 font-medium text-lg">Transparent, Upfront Pricing</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                <span class="text-gray-800 font-medium text-lg">Respect for Your Home (Shoe Covers)</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                <span class="text-gray-800 font-medium text-lg">Fast Turnaround Times</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 flex-shrink-0"></i>
-                <span class="text-gray-800 font-medium text-lg">100% Satisfaction Guarantee</span>
-              </li>
-            </ul>
+    <!-- Section 7: Mid Page CTA -->
+    <section class="bg-navy-800 py-20 text-white text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-hero-pattern opacity-10 bg-fixed"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 class="text-3xl md:text-5xl font-black mb-6 font-serif">Plumbing Emergency? We're on the way.</h2>
+        <p class="text-xl text-blue-200 mb-10">Don't wait for a small leak to become a disaster.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a href="tel:267-320-0081"
+            class="inline-flex items-center justify-center px-10 py-5 rounded-full font-bold bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-500/20 text-xl transition-transform hover:-translate-y-1">
+            <i data-lucide="phone" class="w-6 h-6 mr-3 fill-current"></i>
+            Call Now: (267) 320-0081
+          </a>
+        </div>
+      </div>
+    </section>
 
-            <div class="mt-10 pt-8 border-t border-gray-100">
-              <div class="flex items-center gap-4">
-                <div class="text-indigo-900 font-bold">
-                  <span class="block text-3xl">400+</span>
-                  <span class="text-sm text-gray-500 font-normal">Happy Customers</span>
-                </div>
-                <div class="w-px h-12 bg-gray-200"></div>
-                <div class="text-indigo-900 font-bold">
-                  <span class="block text-3xl">24/7</span>
-                  <span class="text-sm text-gray-500 font-normal">Emergency Support</span>
-                </div>
+    <!-- Section 8: Reviews -->
+    <section id="reviews" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-black text-navy-800 mb-4">What Your Neighbors Are Saying</h2>
+          <div class="flex justify-center items-center gap-2">
+            <i data-lucide="star" class="w-6 h-6 text-yellow-500 fill-current"></i>
+            <span class="text-xl font-bold text-gray-700">4.9/5 Average Rating</span>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Review 1 -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col h-full">
+            <div class="flex gap-1 text-yellow-400 mb-6">
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-gray-600 mb-6 italic leading-relaxed flex-grow">"Austin's Plumbing saved the day! We had a
+              pipe burst at 2 AM and they were there within the hour. Professional, clean, and fair pricing."</p>
+            <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+              <div class="bg-navy-800 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">S
+              </div>
+              <div>
+                <p class="font-bold text-navy-800">Sarah Jenkins</p>
+                <p class="text-xs text-orange-600 font-bold uppercase tracking-wider">Fishtown</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col h-full">
+            <div class="flex gap-1 text-yellow-400 mb-6">
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-gray-600 mb-6 italic leading-relaxed flex-grow">"Finally a plumber who shows up when they say
+              they will. Fixed our tankless water heater issues in one visit. Use them."</p>
+            <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+              <div class="bg-navy-800 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">M
+              </div>
+              <div>
+                <p class="font-bold text-navy-800">Mike Rossini</p>
+                <p class="text-xs text-orange-600 font-bold uppercase tracking-wider">South Philly</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col h-full">
+            <div class="flex gap-1 text-yellow-400 mb-6">
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-gray-600 mb-6 italic leading-relaxed flex-grow">"Professional from start to finish. They
+              explained exactly what needed to be done and didn't try to upsell me. A+"</p>
+            <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+              <div class="bg-navy-800 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">E
+              </div>
+              <div>
+                <p class="font-bold text-navy-800">Elena Rodriguez</p>
+                <p class="text-xs text-orange-600 font-bold uppercase tracking-wider">Center City</p>
               </div>
             </div>
           </div>
@@ -393,257 +556,156 @@
       </div>
     </section>
 
-    <!-- Mid Page CTA -->
-    <section class="bg-red-600 py-16 text-white text-center">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Need a Plumber Fast?</h2>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <button
-            class="inline-flex items-center justify-center px-8 py-3 rounded-md font-semibold bg-white text-red-600 hover:bg-gray-100 shadow-lg text-lg transition-colors">
-            <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
-            Call Now — We're Ready
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Reviews -->
-    <section id="reviews" class="py-16 md:py-24 bg-indigo-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">See Why Philadelphia Trusts Austin's</h2>
-          <p class="text-indigo-200 text-lg">Real reviews from your neighbors.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <div
-            class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors">
-            <div class="flex gap-1 text-yellow-400 mb-4">
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-            </div>
-            <p class="text-gray-200 mb-6 italic leading-relaxed">"Austin's Plumbing saved the day! We had a pipe burst
-              at 2 AM and they were there within the hour. Professional, clean, and fair pricing."</p>
-            <div>
-              <p class="font-bold text-white">Sarah Jenkins</p>
-              <p class="text-sm text-indigo-300">Fishtown</p>
-            </div>
-          </div>
-
-          <div
-            class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors">
-            <div class="flex gap-1 text-yellow-400 mb-4">
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-            </div>
-            <p class="text-gray-200 mb-6 italic leading-relaxed">"Finally a plumber who shows up when they say they
-              will. Fixed our tankless water heater issues in one visit. Highly recommend."</p>
-            <div>
-              <p class="font-bold text-white">Mike Rossini</p>
-              <p class="text-sm text-indigo-300">South Philly</p>
-            </div>
-          </div>
-
-          <div
-            class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors">
-            <div class="flex gap-1 text-yellow-400 mb-4">
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-            </div>
-            <p class="text-gray-200 mb-6 italic leading-relaxed">"Professional from start to finish. They explained
-              exactly what needed to be done and didn't try to upsell me on things I didn't need."</p>
-            <div>
-              <p class="font-bold text-white">Elena Rodriguez</p>
-              <p class="text-sm text-indigo-300">Center City</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12">
-          <a href="#"
-            class="inline-block text-white border-b border-red-500 pb-1 hover:text-red-400 transition-colors">Read all
-            Google Reviews &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Service Area -->
-    <section id="service-area" class="py-16 md:py-24 bg-white">
+    <!-- Section 9: Service Area Map -->
+    <section id="service-area" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Proudly Serving Philadelphia</h2>
-            <p class="text-lg text-gray-600 mb-6">
-              From Center City to the suburbs, our trucks are fully stocked and ready to roll. We've been serving the
-              local community since 2017 with reliable, high-quality plumbing services.
+
+          <div class="order-2 md:order-1 relative h-96 rounded-3xl overflow-hidden shadow-2xl group">
+            <!-- Placeholder Map Image -->
+            <img src="https://picsum.photos/seed/phillymapgraphic/800/800" alt="Service Area Map"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+            <div class="absolute inset-0 bg-navy-800/20 pointer-events-none"></div>
+
+            <!-- Floating Badge -->
+            <div class="absolute bottom-6 left-6 bg-white py-3 px-5 rounded-lg shadow-xl">
+              <p class="font-bold text-navy-800 flex items-center gap-2">
+                <i data-lucide="map" class="w-5 h-5 text-orange-500"></i>
+                Greater Philadelphia Area
+              </p>
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2">
+            <h2 class="text-3xl md:text-5xl font-black text-navy-800 mb-6">Serving All of Philadelphia & Surrounding
+              Counties</h2>
+            <p class="text-lg text-gray-600 mb-8 font-medium">
+              We know the city's plumbing infrastructure inside and out. From historic rowhomes in South Philly to
+              modern estates on the Main Line.
             </p>
-            <ul class="grid grid-cols-2 gap-3 mb-8">
-              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
-                  class="w-4 h-4 text-red-600 mr-2"></i>Center City</li>
-              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
-                  class="w-4 h-4 text-red-600 mr-2"></i>South Philly</li>
-              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
-                  class="w-4 h-4 text-red-600 mr-2"></i>Fishtown</li>
-              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
-                  class="w-4 h-4 text-red-600 mr-2"></i>Northern Liberties</li>
-              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
-                  class="w-4 h-4 text-red-600 mr-2"></i>University City</li>
-              <li class="flex items-center text-gray-700"><i data-lucide="map-pin"
-                  class="w-4 h-4 text-red-600 mr-2"></i>Manayunk</li>
+            <ul class="grid grid-cols-2 gap-y-4 gap-x-8">
+              <li class="flex items-center text-navy-800 font-bold"><i data-lucide="map-pin"
+                  class="w-5 h-5 text-orange-500 mr-2"></i>Center City</li>
+              <li class="flex items-center text-navy-800 font-bold"><i data-lucide="map-pin"
+                  class="w-5 h-5 text-orange-500 mr-2"></i>South Philly</li>
+              <li class="flex items-center text-navy-800 font-bold"><i data-lucide="map-pin"
+                  class="w-5 h-5 text-orange-500 mr-2"></i>Fishtown</li>
+              <li class="flex items-center text-navy-800 font-bold"><i data-lucide="map-pin"
+                  class="w-5 h-5 text-orange-500 mr-2"></i>Northern Liberties</li>
+              <li class="flex items-center text-navy-800 font-bold"><i data-lucide="map-pin"
+                  class="w-5 h-5 text-orange-500 mr-2"></i>Lower Merion</li>
+              <li class="flex items-center text-navy-800 font-bold"><i data-lucide="map-pin"
+                  class="w-5 h-5 text-orange-500 mr-2"></i>Delaware County</li>
             </ul>
           </div>
-          <div class="relative rounded-xl overflow-hidden shadow-lg bg-gray-100 h-80 w-full">
-            <img src="https://picsum.photos/seed/phillymap/800/600" alt="Service Area Map"
-              class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-indigo-900/10 pointer-events-none"></div>
-            <div class="absolute bottom-4 left-4 bg-white p-3 rounded shadow-md">
-              <p class="font-bold text-indigo-900 text-sm">Serving Greater Philadelphia</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- About Preview -->
-    <section id="about" class="py-16 md:py-24 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="order-2 md:order-1">
-            <img src="https://picsum.photos/seed/plumberteam/600/600" alt="Austin's Plumbing Team"
-              class="rounded-lg shadow-xl" />
-          </div>
-          <div class="order-1 md:order-2">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Family-Owned. Built on Trust.</h2>
-            <p class="text-lg text-gray-600 mb-6">
-              We started Austin's Plumbing in 2017 with a simple mission: be the plumber you'd recommend to your
-              neighbor. No hidden fees, no sales gimmicks—just honest work done right the first time.
-            </p>
-            <p class="text-lg text-gray-600 mb-8">
-              We live here, we work here, and we treat your home with the same respect we treat our own.
-            </p>
-            <button
-              class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold border-2 border-indigo-900 text-indigo-900 hover:bg-indigo-50 focus:ring-indigo-900 transition-colors">
-              Learn More About Us <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="bg-indigo-900 py-20 text-white text-center">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl md:text-5xl font-bold mb-6">Plumbing Problem? Let's Fix It Today.</h2>
-        <p class="text-indigo-100 text-xl mb-10 max-w-2xl mx-auto">
-          Don't let a small leak turn into a big disaster. Our licensed experts are standing by.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <button
-            class="inline-flex items-center justify-center px-10 py-4 rounded-md font-semibold bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-600/20 text-lg transition-colors">
-            <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
-            Call Now: 267-320-0081
-          </button>
-          <button
-            class="inline-flex items-center justify-center px-10 py-4 rounded-md font-semibold bg-white text-indigo-900 hover:bg-gray-100 shadow-lg text-lg transition-colors">
-            Get a Free Quote
-          </button>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800">
+  <!-- Section 10: Footer -->
+  <footer class="bg-navy-900 text-cream-100 pt-20 pb-10 border-t border-navy-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         <!-- Brand Column -->
         <div>
-          <div class="text-2xl font-bold text-white font-serif mb-6">Austin's Plumbing</div>
-          <p class="mb-6 text-gray-400 leading-relaxed">
-            Philadelphia's trusted, fast-response plumbing experts. Licensed, insured, and ready to help 24/7.
+          <div class="text-3xl font-black text-white font-serif mb-6 flex items-center gap-2">
+            <div
+              class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center border-2 border-white border-orange-500 overflow-hidden relative">
+              <img src="hero-mascot.png" alt="Austin's Plumbing Badge Logo" class="scale-150 absolute top-2" />
+            </div>
+            Austin's
+          </div>
+          <p class="mb-6 text-gray-400 leading-relaxed text-sm">
+            Philadelphia's trusted, fast-response plumbing experts. We bring old-school integrity to modern plumbing
+            problems.
           </p>
           <div class="flex gap-4">
-            <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-red-600 hover:text-white transition-colors">
+            <a href="https://www.facebook.com/AustinsPlumbingService"
+              class="bg-navy-800 p-2.5 rounded-full hover:bg-orange-500 hover:text-white transition-colors"
+              target="_blank">
               <i data-lucide="facebook" class="w-5 h-5"></i>
             </a>
-            <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-red-600 hover:text-white transition-colors">
+            <a href="https://www.instagram.com/austinsplumbingservice/"
+              class="bg-navy-800 p-2.5 rounded-full hover:bg-orange-500 hover:text-white transition-colors"
+              target="_blank">
               <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.google.com/search?client=safari&rls=en&q=austins+plumbing+service&ie=UTF-8&oe=UTF-8"
+              class="bg-navy-800 p-2.5 rounded-full hover:bg-orange-500 hover:text-white transition-colors"
+              target="_blank">
+              <i data-lucide="search" class="w-5 h-5"></i>
             </a>
           </div>
         </div>
 
         <!-- Contact Column -->
         <div>
-          <h3 class="text-white font-bold text-lg mb-6">Contact Us</h3>
+          <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Contact Us</h3>
           <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-red-500 flex-shrink-0 mt-1"></i>
-              <span>2525 E Gordon Street<br />Philadelphia PA 19125</span>
+            <li class="flex items-start gap-4">
+              <i data-lucide="map-pin" class="w-5 h-5 text-orange-500 flex-shrink-0 mt-1"></i>
+              <span class="text-gray-300">2525 E Gordon Street<br />Philadelphia PA 19125</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-red-500 flex-shrink-0"></i>
-              <a href="tel:267-320-0081" class="hover:text-white">267-320-0081</a>
+            <li class="flex items-center gap-4">
+              <i data-lucide="phone" class="w-5 h-5 text-orange-500 flex-shrink-0"></i>
+              <a href="tel:267-320-0081" class="text-white font-bold hover:text-orange-500 transition-colors">(267)
+                320-0081</a>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="mail" class="w-5 h-5 text-red-500 flex-shrink-0"></i>
-              <a href="mailto:info@austinsplumbing.us" class="hover:text-white">info@austinsplumbing.us</a>
+            <li class="flex items-center gap-4">
+              <i data-lucide="mail" class="w-5 h-5 text-orange-500 flex-shrink-0"></i>
+              <a href="mailto:info@austinsplumbing.us"
+                class="hover:text-white text-gray-300">info@austinsplumbing.us</a>
             </li>
           </ul>
         </div>
 
         <!-- Services Column -->
         <div>
-          <h3 class="text-white font-bold text-lg mb-6">Services</h3>
-          <ul class="space-y-3">
-            <li><a href="#" class="hover:text-red-500 transition-colors">Emergency Plumbing</a></li>
-            <li><a href="#" class="hover:text-red-500 transition-colors">Drain Cleaning</a></li>
-            <li><a href="#" class="hover:text-red-500 transition-colors">Water Heater Repair</a></li>
-            <li><a href="#" class="hover:text-red-500 transition-colors">Sewer Line Inspection</a></li>
-            <li><a href="#" class="hover:text-red-500 transition-colors">Leak Detection</a></li>
-            <li><a href="#" class="hover:text-red-500 transition-colors">Commercial Plumbing</a></li>
+          <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Services</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Emergency Plumbing</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Drain Cleaning</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Water Heater Repair</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Sewer Line Inspection</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Leak Detection</a></li>
           </ul>
         </div>
 
         <!-- Quick Links / Hours -->
         <div>
-          <h3 class="text-white font-bold text-lg mb-6">Hours</h3>
-          <ul class="space-y-3 mb-6">
-            <li class="flex justify-between">
+          <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Hours</h3>
+          <ul class="space-y-3 mb-6 text-sm text-gray-400">
+            <li class="flex justify-between border-b border-navy-800 pb-2">
               <span>Mon - Fri:</span>
-              <span class="text-white">7:00 AM - 5:00 PM</span>
+              <span class="text-white font-medium">7:00 AM - 5:00 PM</span>
             </li>
-            <li class="flex justify-between">
+            <li class="flex justify-between border-b border-navy-800 pb-2">
               <span>Saturday:</span>
-              <span class="text-white">By Appointment</span>
+              <span class="text-white font-medium">By Appointment</span>
             </li>
-            <li class="flex justify-between">
+            <li class="flex justify-between pb-2">
               <span>Sunday:</span>
-              <span class="text-white">Emergency Only</span>
+              <span class="text-white font-medium">Emergency Only</span>
             </li>
           </ul>
-          <div class="bg-gray-800 p-4 rounded border-l-4 border-red-500">
+          <div class="bg-navy-800 p-4 rounded-lg border-l-4 border-orange-500">
             <p class="text-white font-bold text-sm">24/7 Emergency Service</p>
-            <p class="text-xs text-gray-400 mt-1">Available for urgent repairs anytime.</p>
+            <p class="text-xs text-gray-400 mt-1">We answer the phone at 2 AM.</p>
           </div>
         </div>
       </div>
 
       <div
-        class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-        <p>&copy; 2024 Austin's Plumbing Service LLC. All rights reserved.</p>
-        <div class="flex gap-6 mt-4 md:mt-0">
-          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-4 h-4"></i> Master Plumber
-            Licensed</span>
-          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-4 h-4"></i> Fully Insured</span>
+        class="border-t border-navy-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>&copy; 2026 Austin's Plumbing Service LLC. All rights reserved.</p>
+        <div class="flex gap-6 mt-4 md:mt-0 items-center">
+          <!-- Mandatory License Display -->
+          <span class="flex items-center gap-2 text-gray-400 font-bold bg-navy-800 px-3 py-1 rounded-full">
+            <i data-lucide="award" class="w-4 h-4 text-orange-500"></i>
+            License: RMP 059787
+          </span>
         </div>
       </div>
     </div>
@@ -659,6 +721,7 @@
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
         navbar.classList.add('shadow-md');
+        navbar.classList.add('py-0');
       } else {
         navbar.classList.remove('shadow-md');
       }
@@ -674,8 +737,14 @@
         isMenuOpen = !isMenuOpen;
         if (isMenuOpen) {
           mobileMenu.classList.add('open');
+          // Change icon to close
+          mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-7 h-7"></i>';
+          lucide.createIcons();
         } else {
           mobileMenu.classList.remove('open');
+          // Change icon back to menu
+          mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
+          lucide.createIcons();
         }
       });
 
@@ -685,6 +754,8 @@
         link.addEventListener('click', () => {
           isMenuOpen = false;
           mobileMenu.classList.remove('open');
+          mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
+          lucide.createIcons();
         });
       });
     }
